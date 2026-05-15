@@ -1,120 +1,121 @@
-
 <div class="container mt-2">
   <div class="row">
     <div class="col-md-8">
-      <input type="text" 
-      class="form-control"
-       [(ngModel)]="searchValue"
-       (keyup)="onSearch()">
-      </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <select class="form-control"
-          [(ngModel)]="selectedFilter">
-          <option value="country">Player Country</option>
-          <option value="role">Player role</option>
-          <!-- <option value="country">Player </option> -->
-        </select>
-        </div>
-      </div>
-      <table class="table table-bordered mt-2">
-        <thead>
-          <tr>
-            <th>Sr.No</th>
-            <th>name</th>
-            <th>country</th>
-            <th>role</th>
-            <th>age</th>
-            <th>matchesPlayed</th>
-            <th>totalRuns</th>
-            <th>totalWickets</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let player of filteredArr;let i=index">
-            <td>{{i+1}}</td>
-            <td>{{player.name}}</td>
-            <td>{{player.country}}</td>
-            <td>{{player.role}}</td>
-            <td>{{player.age}}</td>
-            <td>{{player.matchesPlayed}}</td>
-            <td>{{player.totalRuns}}</td>
-            <td>{{player.totalWickets}}</td>
-          </tr>
-        </tbody>
-
-      </table>
-    </div>
-    <div class="col-12">
-      <p class="alert alert-info">
-        <strong>{{title | summary :70 }}</strong>
-      </p>
-      <p class="alert alert-info">
-         {{title | summary :50}}
-      </p>
-      <p class="alert alert-info">
-        <strong>{{title | summary :90}}</strong>
-      </p>
-      <p class="alert alert-info">
-        {{title | summary :20}}
-      </p>
+      <input type="text" class="form-control" [(ngModel)]="searchValue" (keyup)="onSearch()">
     </div>
     <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">
-          <h2>
-            {{course.title | uppercase}}
-          </h2>
-        </div>
-        <div class="card-body">
-          <p>
-           <strong> Students:{{course.students | number}}</strong>
-          </p>
-          <p>
-            Rating:{{course.rating | number : '1.2-2'}}
-          </p>
-          <p>
-            <strong>Rating:{{course.rating | number : '1.2'}}</strong>
-          </p>
-          <p>
-            Price:{{course.price | currency}}
-          </p>
-          <p>
-            <strong>Price:{{course.price | currency : 'INR' }}</strong>
-          </p>
-          <p>
-            Price:{{course.price | currency : 'AUD'}}
-          </p>
-          <p>
-            <strong>Price:{{course.price | currency : 'EUR'}}</strong>
-          </p>
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="selectedFilter">
+          <option value="name">Player Name</option>
+          <option value="country">Country</option>
+          <option value="role">Player Role</option>
+          <option value="age">Age</option> 
+          <option value="matchesPlayed">Matches Played</option>
+          <option value="totalRuns">Total Runs</option>
+          <option value="totalWickets">Total Wickets</option>
 
-          <p>
-            releaseDate : {{course.relessDate}}
-          </p>
-
-          <p>
-            <strong>releaseDate : {{course.relessDate | date}}</strong>
-          </p>
-          <p>
-            releaseDate :{{course.relessDate | date:'mediumDate'}}
-          </p>
-          <p>
-            <strong>releaseDate : {{course.relessDate | date:'longDate'}}</strong>
-          </p>
-          <p>
-            releaseDate:{{course.relessDate|date:'shortTime'}}
-          </p>
-        </div>
+          <!-- <option value="country">Player </option> -->
+        </select>
       </div>
-      <p class="alert alert-info mt-4">
-        <strong>{{title | uppercase}}</strong>
-      </p>
-      <p class="alert alert-info">
-        {{title | lowercase}}
-      </p>
-      <p class="alert alert-info">
-       <strong> {{title | titlecase}}</strong>
-      </p>
     </div>
+    <table class="table table-bordered mt-2">
+      <thead>
+        <tr>
+          <th>Sr.No</th>
+          <th>name</th>
+          <th>country</th>
+          <th>role</th>
+          <th>age</th>
+          <th>matchesPlayed</th>
+          <th>totalRuns</th>
+          <th>totalWickets</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of filteredArr;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{player.name}}</td>
+          <td>{{player.country}}</td>
+          <td>{{player.role}}</td>
+          <td>{{player.age}}</td>
+          <td>{{player.matchesPlayed}}</td>
+          <td>{{player.totalRuns}}</td>
+          <td>{{player.totalWickets}}</td>
+        </tr>
+      </tbody>
+
+    </table>
   </div>
+  <div class="col-12">
+    <p class="alert alert-info">
+      <strong>{{title | summary :70 }}</strong>
+    </p>
+    <p class="alert alert-info">
+      {{title | summary :50}}
+    </p>
+    <p class="alert alert-info">
+      <strong>{{title | summary :90}}</strong>
+    </p>
+    <p class="alert alert-info">
+      {{title | summary :20}}
+    </p>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h2>
+          {{course.title | uppercase}}
+        </h2>
+      </div>
+      <div class="card-body">
+        <p>
+          <strong> Students:{{course.students | number}}</strong>
+        </p>
+        <p>
+          Rating:{{course.rating | number : '1.2-2'}}
+        </p>
+        <p>
+          <strong>Rating:{{course.rating | number : '1.2'}}</strong>
+        </p>
+        <p>
+          Price:{{course.price | currency}}
+        </p>
+        <p>
+          <strong>Price:{{course.price | currency : 'INR' }}</strong>
+        </p>
+        <p>
+          Price:{{course.price | currency : 'AUD'}}
+        </p>
+        <p>
+          <strong>Price:{{course.price | currency : 'EUR'}}</strong>
+        </p>
+
+        <p>
+          releaseDate : {{course.relessDate}}
+        </p>
+
+        <p>
+          <strong>releaseDate : {{course.relessDate | date}}</strong>
+        </p>
+        <p>
+          releaseDate :{{course.relessDate | date:'mediumDate'}}
+        </p>
+        <p>
+          <strong>releaseDate : {{course.relessDate | date:'longDate'}}</strong>
+        </p>
+        <p>
+          releaseDate:{{course.relessDate|date:'shortTime'}}
+        </p>
+      </div>
+    </div>
+    <p class="alert alert-info mt-4">
+      <strong>{{title | uppercase}}</strong>
+    </p>
+    <p class="alert alert-info">
+      {{title | lowercase}}
+    </p>
+    <p class="alert alert-info">
+      <strong> {{title | titlecase}}</strong>
+    </p>
+  </div>
+</div>

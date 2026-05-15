@@ -26,7 +26,7 @@ export class AppComponent {
   filteredArr = [...this.playersArr];
 
   onSearch() {
-    let field = this.selectedFilter
+    // let field = this.selectedFilter
     this.filteredArr = this.playersArr.filter(player => {
    return player[this.selectedFilter as keyof typeof player]
    .toString()
@@ -34,7 +34,6 @@ export class AppComponent {
    .includes(this.searchValue.toLowerCase())
 })
   }
-
 }
 
 
