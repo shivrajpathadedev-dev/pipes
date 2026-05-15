@@ -6,11 +6,15 @@ import { Iplayer } from "../models/players";
 })
 export class FilterPipe implements PipeTransform{
     transform(value: Iplayer[],searchValue:string):Iplayer[] {
+    if(searchValue){
         let filterArr=value.filter(p=>{
             return p.country.toLowerCase().includes(searchValue.toLowerCase())
         })
         return filterArr
         
+    }    
+    return value
     }
+    
 
 }

@@ -144,5 +144,8 @@ export const cricketers =[
     matchesPlayed: 91,
     totalRuns: 3022,
     totalWickets: 45,
-  },
+  }
+
 ];
+
+

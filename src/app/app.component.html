@@ -1,8 +1,22 @@
 
 <div class="container mt-2">
   <div class="row">
-    <div class="col-md-12">
-      <input type="text" class="form-control" [(ngModel)]="searchValue">
+    <div class="col-md-8">
+      <input type="text" 
+      class="form-control"
+       [(ngModel)]="searchValue"
+       (keyup)="onSearch()">
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <select class="form-control"
+          [(ngModel)]="selectedFilter">
+          <option value="country">Player Country</option>
+          <option value="role">Player role</option>
+          <!-- <option value="country">Player </option> -->
+        </select>
+        </div>
+      </div>
       <table class="table table-bordered mt-2">
         <thead>
           <tr>
@@ -17,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let player of playersArr | filterPlayer : searchValue;let i=index">
+          <tr *ngFor="let player of filteredArr;let i=index">
             <td>{{i+1}}</td>
             <td>{{player.name}}</td>
             <td>{{player.country}}</td>
@@ -104,4 +118,3 @@
       </p>
     </div>
   </div>
-</div>
